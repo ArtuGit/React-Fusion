@@ -5,16 +5,14 @@ import Button from "@mui/material/Button";
 
 const DialogBox = (props) => {
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      bgcolor: '#cfe8fc',
-      height: '100vh'
-    }}>
       <Box
+        pt={2}
         component="form"
         sx={{
+          bgcolor: 'background.paper',
+          border: 1,
+          borderRadius: '2px',
+          boxShadow: 1,
           '& .MuiTextField-root': {m: 1, width: '25ch'},
         }}
         noValidate
@@ -28,7 +26,6 @@ const DialogBox = (props) => {
           </Button>
         </Container>
       </Box>
-    </Box>
   )
 }
 
