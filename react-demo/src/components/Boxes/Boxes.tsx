@@ -3,6 +3,7 @@ import { Box } from "../Box/Box.tsx";
 import {useState} from "react";
 import {StatLine} from "../StatLine/StatLine.tsx";
 import {StatItem} from "../StatItem/StatItem.tsx";
+import {Log,LogMessage } from "../Log/Log.tsx";
 
 interface BoxesProps {
     amount: number;
@@ -10,12 +11,19 @@ interface BoxesProps {
 
 export const Boxes = ({ amount }: BoxesProps) => {
     const [boxes, setBoxes] = useState<boolean[]>(new Array(amount).fill(false));
+    const [logMessages, setLogMessages] = useState<LogMessage[]>([{ type: 'warning', message: 'Lets start the game!' }]);
 
-    const  setBoxesItem = (index: number) => {
+    const  setBoxesItem = (index: number, ) => {
         setBoxes((prevBoxes) => {
             const newBoxes = [...prevBoxes];
             newBoxes[index] = !newBoxes[index];
             return newBoxes;
+        });
+
+        setLogMessages((prevMessages) => {
+            const newMessages = [...prevMessages];
+            newMessages.unshift({ type: 'info', message: `Box ${index + 1} was ${boxes[index] ? 'disabled' : 'enabled'}` });
+            return newMessages;
         });
     }
 
@@ -33,9 +41,12 @@ export const Boxes = ({ amount }: BoxesProps) => {
                 {boxesComponents}
             </div>
             <StatLine>
-                <StatItem label="Total" value={amount} />
-                <StatItem label="Selected" value={boxes.filter(isSelected => isSelected).length} />
+                <StatItem label="Total" value={amount}/>
+                <StatItem label="Selected" value={boxes.filter(isSelected => isSelected).length}/>
             </StatLine>
+            <div className="p-4">
+                <Log messages={logMessages}/>
+            </div>
         </div>
     );
 };
