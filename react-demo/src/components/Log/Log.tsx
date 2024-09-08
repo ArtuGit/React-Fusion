@@ -1,12 +1,24 @@
 import '../../App.css'
+import {getCurrentTime} from "../../utils/utils.ts";
 
 export interface LogMessage {
+    time: string;
     type: 'info' | 'warning';
     message: string;
 }
 
+
+type LogMessageContent = Omit<LogMessage, 'time'>;
+
 interface LogProps {
     messages: LogMessage[];
+}
+
+export const createLogMessage = (message: LogMessageContent): LogMessage => {
+    return {
+        time: getCurrentTime(),
+        ...message,
+    };
 }
 
 export const Log: React.FC<LogProps> = ({ messages }: LogProps) => {
@@ -26,6 +38,7 @@ export const Log: React.FC<LogProps> = ({ messages }: LogProps) => {
             <ul>
                 {messages.map((log, index) => (
                     <li key={index} className="font-mono">
+                        <span className="text-gray-500">{log.time}</span>
                         <span className={`${getMessageClass(log.type)}`}> [{log.type}] </span>
                         <span> {log.message} </span>
                     </li>
