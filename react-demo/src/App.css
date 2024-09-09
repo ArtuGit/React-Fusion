@@ -1,0 +1,4 @@
+.button-press-effect:active {
+    transform: scale(0.90);
+    transition: transform 0.2s;
+}
