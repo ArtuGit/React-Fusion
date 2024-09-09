@@ -34,6 +34,7 @@ export const Boxes = ({ amount }: BoxesProps) => {
                     newBoxes.splice(index, 1);
                     break;
             }
+            console.log(newBoxes.length);
             return newBoxes;
         });
 
