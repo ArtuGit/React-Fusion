@@ -1,5 +1,5 @@
 import '../../App.css'
-import React, { useState } from 'react';
+import React, {FC, useState} from 'react';
 import { FaTrash, FaArrowRight, FaArrowLeft, FaSyncAlt } from 'react-icons/fa';
 
 export enum BoxActionEnum {
@@ -15,7 +15,7 @@ interface BoxProps {
     setBoxesItem: (index: number, action: BoxActionEnum) => void;
 }
 
-export const Box = ({ index, isSelected, setBoxesItem }: BoxProps) => {
+export const Box:FC<BoxProps> = ({ index, isSelected, setBoxesItem }: BoxProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (

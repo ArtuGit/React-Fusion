@@ -1,5 +1,6 @@
 import '../../App.css'
 import {getCurrentTime} from "../../utils/utils.ts";
+import {FC} from "react";
 
 export interface LogMessage {
     time: string;
@@ -21,7 +22,7 @@ export const createLogMessage = (message: LogMessageContent): LogMessage => {
     };
 }
 
-export const Log: React.FC<LogProps> = ({ messages }: LogProps) => {
+export const Log: FC<LogProps> = ({ messages }: LogProps) => {
     const getMessageClass = (type: string) => {
         switch (type) {
             case 'info':

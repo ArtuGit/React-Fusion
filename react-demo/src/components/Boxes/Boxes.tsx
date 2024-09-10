@@ -1,6 +1,6 @@
 import '../../App.css'
 import {Box, BoxActionEnum} from "../Box/Box.tsx";
-import {useState} from "react";
+import {FC, useState} from "react";
 import {StatLine} from "../StatLine/StatLine.tsx";
 import {StatItem} from "../StatItem/StatItem.tsx";
 import {createLogMessage, Log, LogMessage} from "../Log/Log.tsx";
@@ -9,7 +9,7 @@ interface BoxesProps {
     amount: number;
 }
 
-export const Boxes = ({ amount }: BoxesProps) => {
+export const Boxes: FC<BoxesProps> = ({ amount }: BoxesProps) => {
     const [boxes, setBoxes] = useState<boolean[]>(new Array(amount).fill(false));
     const [logMessages, setLogMessages] = useState<LogMessage[]>([createLogMessage({ type: 'warning', message: 'Lets start the game!' })]);
 
