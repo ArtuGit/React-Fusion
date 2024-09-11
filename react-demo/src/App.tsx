@@ -1,12 +1,12 @@
 import './App.css'
-import  { Boxes } from './components/Boxes/Boxes'
+import {Layout} from "./components/Layout/Layout.tsx";
 
 function App() {
     return (
         <>
-            <section className="bg-gradient-to-b from-bg-gradient-start to-bg-gradient-end min-h-screen h-max">
-                <Boxes amount={15}/>
-            </section>
+            <div className="flex flex-col flex-nowrap justify-center items-center bg-gradient-to-b from-bg-gradient-start to-bg-gradient-end min-h-screen">
+                <Layout/>
+            </div>
         </>
     )
 }
