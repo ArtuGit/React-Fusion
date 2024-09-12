@@ -1,24 +1,47 @@
 import '../../App.css'
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {Boxes} from "../Boxes/Boxes.tsx";
+import { Dialog } from "../Dialog/Dialog.tsx";
 
 export const Layout: FC = () => {
+    const handleLoginAction = () => {
+        console.log("Login action performed");
+    };
+
+    const handleRegisterAction = () => {
+        console.log("Register action performed");
+    };
+
     return (
         <>
             <header className="bg-peach flex-none h-10 w-full">
-
                 <div className="flex justify-between items-center h-full px-40">
                     <div className="flex items-center">
                         <a href="/">
-                            {/*<div src="/rd.svg" alt="Logo" className="h-6 w-6 mr-2" />*/}
                             <div className="font-extrabold text-xl uppercase tracking-wider bg-black text-white px-2 py-1 transform -skew-x-12 inline-block shadow-[4px_4px_0_0_#ff8200]">
                                 REACT DEMO
                             </div>
                         </a>
                     </div>
-                    <div>
-                        <a href="/login" className="text-blue-500 mr-4">Login</a>
-                        <a href="/register" className="text-blue-500">Register</a>
+                    <div className="flex space-x-4">
+                        <Dialog
+                            title="Login"
+                            actionLabel="Log In"
+                            onAction={handleLoginAction}
+                            trigger={<button className="text-blue-500">Login</button>}
+                        >
+                            <p>Enter your credentials to log in.</p>
+                            {/* Add login form or other content here */}
+                        </Dialog>
+                        <Dialog
+                            title="Register"
+                            actionLabel="Register"
+                            onAction={handleRegisterAction}
+                            trigger={<button className="text-blue-500">Register</button>}
+                        >
+                            <p>Create a new account.</p>
+                            {/* Add registration form or other content here */}
+                        </Dialog>
                     </div>
                 </div>
             </header>
@@ -40,7 +63,6 @@ export const Layout: FC = () => {
                         </nav>
                     </section>
 
-                    {/* Main content section */}
                     <main className="flex-1 p-8">
                         <h2 className="text-2xl font-bold mb-4">Welcome to React Demo</h2>
                           <Boxes amount={15}/>

@@ -21,6 +21,9 @@ export default {
         'bg-gradient-start': '#a9d6e5',
         'bg-gradient-end': '#89c2d9',
       },
+      zIndex: {
+        '100': '100',
+      }
     },
   },
   plugins: [],
