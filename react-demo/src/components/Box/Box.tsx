@@ -20,7 +20,7 @@ export const Box:FC<BoxProps> = ({ index, isSelected, setBoxesItem }: BoxProps) 
 
     return (
         <div
-            className={`relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 mx-2 sm:mx-3 md:mx-4 my-2 sm:my-3 md:my-4 border-4 border-dashed border-gray-200 rounded-lg ${isSelected ? 'bg-blue-400' : ''}`}
+            className={`relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 mx-2 sm:mx-3 md:mx-4 my-2 sm:my-3 md:my-4 border-4 border-dashed rounded-lg ${isSelected ? 'bg-blue-400' : ''} ${isHovered ? 'border-peach' : 'border-gray-200'}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
