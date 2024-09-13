@@ -19,18 +19,6 @@ export const Dialog: FC<DialogProps> = ({ title, actionLabel, onAction, trigger,
     closeDialog();
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
   return (
     <>
       <div onClick={openDialog}>{trigger}</div>
