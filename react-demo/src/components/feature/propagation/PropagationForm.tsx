@@ -35,7 +35,7 @@ export const PropagationForm: React.FC<Propagation1FormProps> = ({ onSubmit, onC
     checkboxInput: false,
     radioInput: '',
     dateInput: '',
-    colorInput: '#000000',
+    colorInput: '#89c2d9',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -128,9 +128,10 @@ export const PropagationForm: React.FC<Propagation1FormProps> = ({ onSubmit, onC
           <label htmlFor="selectInput" className="block text-sm font-medium text-karaka">Country</label>
           <select id="selectInput" name="selectInput" value={formData.selectInput} onChange={handleChange} className="mt-1 block w-full rounded-md border-amber shadow-sm focus:border-flush-orange focus:ring focus:ring-flush-orange focus:ring-opacity-50 px-3">
             <option value="">Select a country</option>
-            <option value="usa">USA</option>
             <option value="canada">Canada</option>
             <option value="uk">UK</option>
+            <option value="ukraine">Ukraine</option>
+            <option value="usa">USA</option>
           </select>
         </div>
 
