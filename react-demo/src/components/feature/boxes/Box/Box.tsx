@@ -1,4 +1,4 @@
-import '../../App.css'
+import '../../../../App.css'
 import React, {FC, useState} from 'react';
 import { FaTrash, FaArrowRight, FaArrowLeft, FaSyncAlt } from 'react-icons/fa';
 

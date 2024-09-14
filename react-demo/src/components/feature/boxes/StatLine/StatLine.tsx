@@ -1,4 +1,4 @@
-import '../../App.css'
+import '../../../../App.css'
 import {FC, ReactElement} from "react";
 import {StatItem} from "../StatItem/StatItem.tsx";
 

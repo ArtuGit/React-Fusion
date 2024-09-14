@@ -1,4 +1,4 @@
-import '../../App.css'
+import '../../../../App.css'
 import {FC} from "react";
 
 interface StatItemProps {

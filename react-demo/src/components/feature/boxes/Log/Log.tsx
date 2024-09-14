@@ -1,5 +1,5 @@
-import '../../App.css'
-import {getCurrentTime} from "../../utils/utils.ts";
+import '../../../../App.css'
+import {getCurrentTime} from "../../../../utils/utils.ts";
 import {FC} from "react";
 
 export interface LogMessage {

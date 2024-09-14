@@ -1,4 +1,4 @@
-import '../../App.css'
+import '../../../../App.css'
 import {Box, BoxActionEnum} from "../Box/Box.tsx";
 import {FC, useState} from "react";
 import {StatLine} from "../StatLine/StatLine.tsx";
