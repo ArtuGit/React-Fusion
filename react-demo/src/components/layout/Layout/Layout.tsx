@@ -2,6 +2,7 @@ import '../../../App.css'
 import React, {FC} from 'react';
 import {Boxes} from "../../feature/boxes/Boxes/Boxes.tsx";
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
+import { CommonStats } from "../CommonStats/CommonStats.tsx";
 
 export const Layout: FC = () => {
     const handleLoginAction = () => {
@@ -79,13 +80,7 @@ export const Layout: FC = () => {
 
             <footer className="bg-flush-orange flex-none w-full sticky bottom-0">
                 <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-40 py-2 md:py-0 md:h-16">
-                    <div className="flex flex-col md:flex-row md:space-x-8 mb-2 md:mb-0">
-                        {stats.map((stat, index) => (
-                            <div key={index} className="text-white text-center md:text-left">
-                                <span className="font-bold">{stat.label}:</span> {stat.value}
-                            </div>
-                        ))}
-                    </div>
+                    <CommonStats stats={stats} />
                     <div className="flex flex-col md:flex-row items-center md:space-x-4">
                         <p className="text-sm text-white mb-2 md:mb-0 text-center md:text-left">
                             All rights reserved © {new Date().getFullYear()}
