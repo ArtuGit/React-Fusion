@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 import {Boxes} from "../../feature/boxes/Boxes/Boxes.tsx";
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
-import { Propagation } from "../../feature/Propagation/Propagationґ.tsx";
+import { Propagation } from "../../feature/propagation/Propagationґ.tsx";
 
 export const Layout: FC = () => {
     const handleLoginAction = () => {
