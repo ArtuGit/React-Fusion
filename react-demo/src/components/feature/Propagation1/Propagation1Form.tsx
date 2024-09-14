@@ -49,7 +49,7 @@ export const Propagation1Form: React.FC<Propagation1FormProps> = ({ onSubmit, on
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-peach p-6 rounded-lg shadow-[4px_4px_0_0_#ff8200]">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-peach p-6 rounded-lg shadow-[4px_4px_0_0_#ffc100]">
       <div>
         <label htmlFor="textInput" className="block text-sm font-medium text-karaka">Username</label>
         <input type="text" id="textInput" name="textInput" value={formData.textInput} onChange={handleChange} className="mt-1 block w-full rounded-md border-amber shadow-sm focus:border-flush-orange focus:ring focus:ring-flush-orange focus:ring-opacity-50 px-3" />
