@@ -17,7 +17,7 @@ interface Propagation1StatResProps {
   data: FormData;
 }
 
-export const PropagationStatRes: React.FC<Propagation1StatResProps> = ({ data }) => {
+export const UserFormState: React.FC<Propagation1StatResProps> = ({ data }) => {
   return (
     <div className="bg-peach p-6 rounded-lg shadow-[4px_4px_0_0_#ffc100]">
       <h2 className="text-xl font-bold mb-4 text-karaka">Current Form State</h2>

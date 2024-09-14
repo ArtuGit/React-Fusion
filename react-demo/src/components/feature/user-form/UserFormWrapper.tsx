@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { PropagationForm } from './PropagationForm.tsx';
-import { PropagationStatRes } from './PropagationStatRes.tsx';
+import { UserForm } from './UserForm.tsx';
+import { UserFormState } from './UserFormState.tsx';
 
 interface FormData {
   textInput: string;
@@ -15,7 +15,7 @@ interface FormData {
   colorInput: string;
 }
 
-export const Propagation: React.FC = () => {
+export const UserFormWrapper: React.FC = () => {
   const [formState, setFormState] = useState<FormData>({
     textInput: '',
     numberInput: 0,
@@ -44,16 +44,16 @@ export const Propagation: React.FC = () => {
       <h1 className="text-2xl font-bold mb-4 text-karaka">Propagation1 Demo</h1>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="w-full md:w-1/2">
-          <PropagationForm onSubmit={handleFormSubmit} onChange={handleFormChange} />
+          <UserForm onSubmit={handleFormSubmit} onChange={handleFormChange} />
         </div>
         <div className="w-full md:w-1/2">
-          <PropagationStatRes data={formState} />
+          <UserFormState data={formState} />
         </div>
       </div>
       {submittedData && (
         <div className="mt-8">
           <h2 className="text-xl font-bold mb-4 text-karaka">Submitted Data</h2>
-          <PropagationStatRes data={submittedData} />
+          <UserFormState data={submittedData} />
         </div>
       )}
     </div>

@@ -24,7 +24,7 @@ interface Propagation1FormProps {
   onChange: (data: FormData) => void;
 }
 
-export const PropagationForm: React.FC<Propagation1FormProps> = ({ onSubmit, onChange }) => {
+export const UserForm: React.FC<Propagation1FormProps> = ({ onSubmit, onChange }) => {
   const [formData, setFormData] = useState<FormData>({
     textInput: '',
     numberInput: 0,

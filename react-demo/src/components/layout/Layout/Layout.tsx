@@ -3,7 +3,8 @@ import React, {FC} from 'react';
 import {Boxes} from "../../feature/boxes/Boxes/Boxes.tsx";
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
-import { Propagation } from "../../feature/propagation/Propagation.tsx";
+import { UserFormWrapper } from "../../feature/user-form/UserFormWrapper.tsx";
+import { RefDemo } from "../../feature/ref-demo/RefDemo.tsx";
 
 export const Layout: FC = () => {
     const handleLoginAction = () => {
@@ -41,7 +42,7 @@ export const Layout: FC = () => {
                             trigger={<button className="text-blue-500">Login</button>}
                         >
                             <p>Enter your credentials to log in.</p>
-                            {/* Add login form or other content here */}
+                            {/* Add login user-form or other content here */}
                         </Dialog>
                         <Dialog
                             title="Register"
@@ -50,7 +51,7 @@ export const Layout: FC = () => {
                             trigger={<button className="text-blue-500">Register</button>}
                         >
                             <p>Create a new account.</p>
-                            {/* Add registration form or other content here */}
+                            {/* Add registration user-form or other content here */}
                         </Dialog>
                     </div>
                 </div>
@@ -75,8 +76,7 @@ export const Layout: FC = () => {
 
                 <main className="flex-1 p-8">
                     <h2 className="text-2xl font-bold mb-4">Welcome to React Demo</h2>
-                    <Propagation />
-                    <Boxes amount={15}/>
+                    <RefDemo />
                 </main>
             </div>
 
