@@ -3,6 +3,7 @@ import React, {FC} from 'react';
 import {Boxes} from "../../feature/boxes/Boxes/Boxes.tsx";
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
+import { Propagation1 } from "../../feature/Propagation1/Propagation1.tsx";
 
 export const Layout: FC = () => {
     const handleLoginAction = () => {
@@ -74,6 +75,7 @@ export const Layout: FC = () => {
 
                 <main className="flex-1 p-8">
                     <h2 className="text-2xl font-bold mb-4">Welcome to React Demo</h2>
+                    <Propagation1 />
                     <Boxes amount={15}/>
                 </main>
             </div>
