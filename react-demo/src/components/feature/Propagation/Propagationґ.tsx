@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Propagation1Form } from './Propagation1Form';
-import { Propagation1StatRes } from './Propagation1StatRes';
+import { PropagationForm } from './PropagationForm.tsx';
+import { PropagationStatRes } from './PropagationStatRes.tsx';
 
 interface FormData {
   textInput: string;
@@ -15,7 +15,7 @@ interface FormData {
   colorInput: string;
 }
 
-export const Propagation1: React.FC = () => {
+export const Propagation: React.FC = () => {
   const [formState, setFormState] = useState<FormData>({
     textInput: '',
     numberInput: 0,
@@ -40,20 +40,20 @@ export const Propagation1: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 max-w-4xl">
       <h1 className="text-2xl font-bold mb-4 text-karaka">Propagation1 Demo</h1>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="w-full md:w-1/2">
-          <Propagation1Form onSubmit={handleFormSubmit} onChange={handleFormChange} />
+          <PropagationForm onSubmit={handleFormSubmit} onChange={handleFormChange} />
         </div>
         <div className="w-full md:w-1/2">
-          <Propagation1StatRes data={formState} />
+          <PropagationStatRes data={formState} />
         </div>
       </div>
       {submittedData && (
         <div className="mt-8">
           <h2 className="text-xl font-bold mb-4 text-karaka">Submitted Data</h2>
-          <Propagation1StatRes data={submittedData} />
+          <PropagationStatRes data={submittedData} />
         </div>
       )}
     </div>
