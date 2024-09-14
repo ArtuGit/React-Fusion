@@ -3,8 +3,7 @@ import React, {FC} from 'react';
 import {Boxes} from "../../feature/boxes/Boxes/Boxes.tsx";
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
-import { UserFormWrapper } from "../../feature/user-form/UserFormWrapper.tsx";
-import { RefDemo } from "../../feature/ref-demo/RefDemo.tsx";
+import {ComponentInteractions} from "../../feature/component-interactions/ComponentInteractions.tsx";
 
 export const Layout: FC = () => {
     const handleLoginAction = () => {
@@ -76,7 +75,7 @@ export const Layout: FC = () => {
 
                 <main className="flex-1 p-8">
                     <h2 className="text-2xl font-bold mb-4">Welcome to React Demo</h2>
-                    <RefDemo />
+                    <ComponentInteractions />
                 </main>
             </div>
 
