@@ -1,8 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { CounterWithHistory } from './CounterWithHistory';
 import { InteractiveClockDemo, ClockMethods } from './InteractiveClockDemo';
+import { InteractiveClock } from './InteractiveClock';
 
-export const ComponentInteractions: React.FC = () => {
+interface ComponentInteractionsProps {
+  currentTime: Date;
+}
+
+export const ComponentInteractions: React.FC<ComponentInteractionsProps> = ({ currentTime }) => {
   const [sharedCount, setSharedCount] = useState(0);
   const clockRef = useRef<ClockMethods>(null);
 
@@ -20,7 +25,7 @@ export const ComponentInteractions: React.FC = () => {
     <div className="container mx-auto p-4 max-w-4xl">
       <div className="space-y-8">
         <CounterWithHistory sharedCount={sharedCount} onIncrement={incrementSharedCount} />
-        <InteractiveClockDemo ref={clockRef} sharedCount={sharedCount} />
+        <InteractiveClockDemo ref={clockRef} sharedCount={sharedCount} currentTime={currentTime} />
       </div>
     </div>
   );

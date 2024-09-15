@@ -1,9 +1,10 @@
 import '../../../App.css'
-import React, {FC} from 'react';
+import React, {FC, useState, useEffect} from 'react';
 import {Boxes} from "../../feature/boxes/Boxes/Boxes.tsx";
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
 import {ComponentInteractions} from "../../feature/component-interactions/ComponentInteractions.tsx";
+import { InteractiveClock } from "../../feature/component-interactions/InteractiveClock.tsx";
 
 export const Layout: FC = () => {
     const handleLoginAction = () => {
@@ -21,6 +22,13 @@ export const Layout: FC = () => {
         { label: "Achievements", value: 8 },
         { label: "Streak", value: "7 days" },
     ];
+
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+        return () => clearInterval(timer);
+    }, []);
 
     return (
         <>
@@ -75,7 +83,7 @@ export const Layout: FC = () => {
 
                 <main className="flex-1 p-8">
                     <h2 className="text-2xl font-bold mb-4">Welcome to React Demo</h2>
-                    <ComponentInteractions />
+                    <ComponentInteractions currentTime={currentTime} />
                 </main>
             </div>
 
@@ -83,6 +91,9 @@ export const Layout: FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-40 py-2 md:py-0 md:h-16">
                     <CommonStats stats={stats} />
                     <div className="flex flex-col md:flex-row items-center md:space-x-4">
+                        <div className="text-xl font-bold text-white mb-2 md:mb-0">
+                            {currentTime.toLocaleTimeString()}
+                        </div>
                         <p className="text-sm text-white mb-2 md:mb-0 text-center md:text-left">
                             All rights reserved © {new Date().getFullYear()}
                         </p>

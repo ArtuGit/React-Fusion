@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, forwardRef, useState, useEffect } from 'react';
+import React, { useImperativeHandle, forwardRef, useState } from 'react';
 
 export interface ClockMethods {
   changeColor: () => void;
@@ -7,19 +7,14 @@ export interface ClockMethods {
 
 interface InteractiveClockProps {
   sharedCount: number;
+  currentTime: Date;
 }
 
 const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8'];
 
-export const InteractiveClock = forwardRef<ClockMethods, InteractiveClockProps>(({ sharedCount }, ref) => {
-  const [time, setTime] = useState(new Date());
+export const InteractiveClock = forwardRef<ClockMethods, InteractiveClockProps>(({ sharedCount, currentTime }, ref) => {
   const [color, setColor] = useState(colors[0]);
   const [isShaking, setIsShaking] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   useImperativeHandle(ref, () => ({
     changeColor: () => {
@@ -39,7 +34,7 @@ export const InteractiveClock = forwardRef<ClockMethods, InteractiveClockProps>(
       }`}
       style={{ backgroundColor: color }}
     >
-      {time.toLocaleTimeString()}
+      {currentTime.toLocaleTimeString()}
       <div className="text-2xl mt-2">Shared Count: {sharedCount}</div>
     </div>
   );
