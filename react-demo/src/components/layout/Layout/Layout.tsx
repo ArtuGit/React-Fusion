@@ -1,34 +1,18 @@
 import '../../../App.css'
-import React, {FC, useState, useEffect} from 'react';
-import {Boxes} from "../../feature/boxes/Boxes/Boxes.tsx";
+import React, { useContext } from 'react';
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
-import {ComponentInteractions} from "../../feature/component-interactions/ComponentInteractions.tsx";
-import { InteractiveClock } from "../../feature/component-interactions/InteractiveClock.tsx";
+import { ComponentInteractions } from "../../feature/component-interactions/ComponentInteractions.tsx";
+import { AppContext } from '../../../context/AppContext';
 
-export const Layout: FC = () => {
-    const handleLoginAction = () => {
-        console.log("Login action performed");
-    };
+export const Layout: React.FC = () => {
+    const context = useContext(AppContext);
+    
+    if (!context) {
+        throw new Error("Layout must be used within an AppProvider");
+    }
 
-    const handleRegisterAction = () => {
-        console.log("Register action performed");
-    };
-
-    // Demo stats for gamification
-    const stats = [
-        { label: "Points", value: 1250 },
-        { label: "Level", value: 5 },
-        { label: "Achievements", value: 8 },
-        { label: "Streak", value: "7 days" },
-    ];
-
-    const [currentTime, setCurrentTime] = useState(new Date());
-
-    useEffect(() => {
-        const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-        return () => clearInterval(timer);
-    }, []);
+    const { currentTime, stats, handleLoginAction, handleRegisterAction } = context;
 
     return (
         <>
