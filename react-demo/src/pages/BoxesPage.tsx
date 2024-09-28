@@ -15,7 +15,7 @@ const BoxesPage: React.FC = () => {
     return (
         <>
             <h2 className="text-2xl font-bold mb-4">Boxes</h2>
-            <Boxes />
+            <Boxes amount={15}/>
         </>
     );
 };

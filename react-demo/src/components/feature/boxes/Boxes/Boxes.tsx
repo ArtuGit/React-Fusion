@@ -14,7 +14,7 @@ export const Boxes: FC<BoxesProps> = ({ amount }: BoxesProps) => {
     const [logMessages, setLogMessages] = useState<LogMessage[]>([createLogMessage({ type: 'warning', message: 'Lets start the game!' })]);
 
     let gameOver: boolean = false;
-    const  setBoxesItem = (index: number, action: BoxActionEnum) => {
+    const setBoxesItem = (index: number, action: BoxActionEnum) => {
 
         gameOver = boxes.length === 1 && action === BoxActionEnum.Delete;
 
