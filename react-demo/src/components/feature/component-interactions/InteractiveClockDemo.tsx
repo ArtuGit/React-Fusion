@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
+import React, { forwardRef } from 'react';
 import { InteractiveClock, ClockMethods } from './InteractiveClock';
 
 interface InteractiveClockDemoProps {

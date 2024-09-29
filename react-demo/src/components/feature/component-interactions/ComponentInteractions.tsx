@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { CounterWithHistory } from './CounterWithHistory';
 import { InteractiveClockDemo, ClockMethods } from './InteractiveClockDemo';
-import { InteractiveClock } from './InteractiveClock';
 
 interface ComponentInteractionsProps {
   currentTime: Date;
