@@ -5,6 +5,7 @@ import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
 import { AppContext } from '../../../context/AppContext';
 import { routes } from '../../../routes/routes.ts';
+import {MainMenu} from "../menu/MainMenu.tsx";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -54,17 +55,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             </header>
 
             <div className="grow w-full min-h-full flex">
-                <section className="w-64 flex items-center bg-blue-500">
-                    <nav className="w-full">
-                        <ul className="py-4">
-                            {routes.map((route) => (
-                                <li key={route.path} className="px-6 py-2 hover:bg-flush-orange">
-                                    <Link to={route.path} className="block w-full h-full text-gray-800">{route.name}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                </section>
+                <MainMenu />
 
                 <main className="flex-1 p-8">
                     {children}
