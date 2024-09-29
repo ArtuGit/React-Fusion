@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
 import { AppContext } from '../../../context/AppContext';
-import { routes } from '../../../routes/routes.ts';
 import {MainMenu} from "../menu/MainMenu.tsx";
 
 interface LayoutProps {

@@ -41,7 +41,6 @@ export const UserFormWrapper: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4 max-w-4xl">
-      <h1 className="text-2xl font-bold mb-4 text-karaka">Propagation1 Demo</h1>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="w-full md:w-1/2">
           <UserForm onSubmit={handleFormSubmit} onChange={handleFormChange} />
