@@ -1,13 +1,13 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import {StatisticsProvider} from "./StatisticsProvider.tsx";
 
-interface AppContextType {
+export interface AppContextType {
   currentTime: Date;
   handleLoginAction: () => void;
   handleRegisterAction: () => void;
 }
 
-export const AppContext = createContext<AppContextType | undefined>(undefined);
+export const AppContext = createContext<AppContextType | null>(null);
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [currentTime, setCurrentTime] = useState(new Date());

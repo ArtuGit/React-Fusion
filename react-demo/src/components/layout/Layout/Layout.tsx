@@ -14,12 +14,8 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
     const context = useContext(AppContext);
     const stats = useContext(StatContext);
-    
-    if (!context) {
-        throw new Error("Layout must be used within an AppProvider");
-    }
 
-    const { currentTime, handleLoginAction, handleRegisterAction } = context;
+    const { currentTime, handleLoginAction, handleRegisterAction } = context!;
 
     return (
         <>
