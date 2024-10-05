@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ComponentInteractions } from "../components/feature/component-interactions/ComponentInteractions.tsx";
-import { AppContext } from '../context/AppContext';
+import { AppContext } from '../context/AppProvider.tsx';
 
 const ComponentInteractionsPage: React.FC = () => {
     const context = useContext(AppContext);

@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
-import { AppContext } from '../../../context/AppContext';
+import { AppContext } from '../../../context/AppProvider.tsx';
 import {MainMenu} from "../MainMenu/MainMenu.tsx";
 
 interface LayoutProps {
