@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
 import { AppContext } from '../../../context/AppContext';
-import {MainMenu} from "../menu/MainMenu.tsx";
+import {MainMenu} from "../MainMenu/MainMenu.tsx";
 
 interface LayoutProps {
     children: React.ReactNode;
