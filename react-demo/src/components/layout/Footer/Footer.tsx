@@ -1,9 +1,11 @@
 import React, {FC, useContext} from 'react';
 import {Statistics} from "../CommonStats/Statistics.tsx";
 import {StatContext} from "../../../context/StatisticsProvider.tsx";
+import {TimeContext} from "../../../context/TimeProvider.tsx";
 
 export const Footer: FC = () => {
     const stats = useContext(StatContext);
+    const currentTime = useContext(TimeContext);
 
     return (
         <footer className="bg-flush-orange flex-none w-full sticky bottom-0">
@@ -11,7 +13,7 @@ export const Footer: FC = () => {
                 <Statistics stats={stats}/>
                 <div className="flex flex-col md:flex-row items-center md:space-x-4">
                     <div className="text-xl font-bold text-white mb-2 md:mb-0">
-                        {/*{currentTime.toLocaleTimeString()}*/} Tine
+                        {currentTime!.toLocaleTimeString()}
                     </div>
                     <p className="text-sm text-white mb-2 md:mb-0 text-center md:text-left">
                         All rights reserved © {new Date().getFullYear()}

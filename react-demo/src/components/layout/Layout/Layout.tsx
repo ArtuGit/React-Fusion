@@ -13,7 +13,7 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
     const context = useContext(AppContext);
 
-    const { currentTime, handleLoginAction, handleRegisterAction } = context!;
+    const { handleLoginAction, handleRegisterAction } = context!;
 
     return (
         <>
