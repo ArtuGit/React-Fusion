@@ -5,6 +5,7 @@ import { Dialog } from "../../ui/Dialog/Dialog.tsx";
 import { CommonStats } from "../CommonStats/CommonStats.tsx";
 import { AppContext } from '../../../context/AppProvider.tsx';
 import {MainMenu} from "../MainMenu/MainMenu.tsx";
+import {StatContext} from "../../../context/StatProvider.tsx";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -12,12 +13,13 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
     const context = useContext(AppContext);
+    const stats = useContext(StatContext);
     
     if (!context) {
         throw new Error("Layout must be used within an AppProvider");
     }
 
-    const { currentTime, stats, handleLoginAction, handleRegisterAction } = context;
+    const { currentTime, handleLoginAction, handleRegisterAction } = context;
 
     return (
         <>

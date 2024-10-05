@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
+import {StatProvider} from "./StatProvider.tsx";
 
 interface AppContextType {
   currentTime: Date;
-  stats: { label: string; value: number | string }[];
   handleLoginAction: () => void;
   handleRegisterAction: () => void;
 }
@@ -17,13 +17,6 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     return () => clearInterval(timer);
   }, []);
 
-  const stats = [
-    { label: "Points", value: 1250 },
-    { label: "Level", value: 5 },
-    { label: "Achievements", value: 8 },
-    { label: "Streak", value: "7 days" },
-  ];
-
   const handleLoginAction = () => {
     console.log("Login action performed");
   };
@@ -33,8 +26,10 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   return (
-    <AppContext.Provider value={{ currentTime, stats, handleLoginAction, handleRegisterAction }}>
-      {children}
+    <AppContext.Provider value={{ currentTime, handleLoginAction, handleRegisterAction }}>
+      <StatProvider>
+        {children}
+      </StatProvider>
     </AppContext.Provider>
   );
 };
