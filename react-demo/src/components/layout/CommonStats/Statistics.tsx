@@ -1,15 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import {CommonStatsProps} from "../../../context/StatisticsProvider.tsx";
 
-interface Stat {
-    label: string;
-    value: string | number;
-}
-
-interface CommonStatsProps {
-    stats: Stat[];
-}
-
-export const CommonStats: FC<CommonStatsProps> = ({ stats }) => {
+export const Statistics: FC<CommonStatsProps> = ({ stats }) => {
     return (
         <div className="flex flex-col md:flex-row md:space-x-8 mb-2 md:mb-0">
             {stats.map((stat, index) => (

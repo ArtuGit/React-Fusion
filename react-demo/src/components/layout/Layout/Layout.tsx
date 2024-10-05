@@ -2,10 +2,10 @@ import '../../../App.css'
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Dialog } from "../../ui/Dialog/Dialog.tsx";
-import { CommonStats } from "../CommonStats/CommonStats.tsx";
+import { Statistics } from "../CommonStats/Statistics.tsx";
 import { AppContext } from '../../../context/AppProvider.tsx';
 import {MainMenu} from "../MainMenu/MainMenu.tsx";
-import {StatContext} from "../../../context/StatProvider.tsx";
+import {StatContext} from "../../../context/StatisticsProvider.tsx";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -65,7 +65,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             <footer className="bg-flush-orange flex-none w-full sticky bottom-0">
                 <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-40 py-2 md:py-0 md:h-16">
-                    <CommonStats stats={stats} />
+                    <Statistics stats={stats} />
                     <div className="flex flex-col md:flex-row items-center md:space-x-4">
                         <div className="text-xl font-bold text-white mb-2 md:mb-0">
                             {currentTime.toLocaleTimeString()}

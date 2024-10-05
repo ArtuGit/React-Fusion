@@ -1,8 +1,17 @@
 import React, { createContext, ReactNode } from 'react';
 
-export const StatContext = createContext<null>(null);
+export interface StatItem {
+  label: string;
+  value: string | number;
+}
 
-export const StatProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export interface CommonStatsProps {
+  stats: StatItem[];
+}
+
+export const StatContext = createContext<StatItem[]>([]);
+
+export const StatisticsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const stats = [
     { label: "Points", value: 1250 },
     { label: "Level", value: 5 },

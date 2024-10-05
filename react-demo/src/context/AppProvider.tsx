@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import {StatProvider} from "./StatProvider.tsx";
+import {StatisticsProvider} from "./StatisticsProvider.tsx";
 
 interface AppContextType {
   currentTime: Date;
@@ -27,9 +27,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   return (
     <AppContext.Provider value={{ currentTime, handleLoginAction, handleRegisterAction }}>
-      <StatProvider>
+      <StatisticsProvider>
         {children}
-      </StatProvider>
+      </StatisticsProvider>
     </AppContext.Provider>
   );
 };
