@@ -9,7 +9,6 @@ function App() {
     return (
         <AppProviders>
             <Router>
-                <div className="flex flex-col flex-nowrap justify-center items-center bg-gradient-to-b from-bg-gradient-start to-bg-gradient-end min-h-screen">
                     <Layout>
                         <Routes>
                             {routes.map((route) => (
@@ -17,7 +16,6 @@ function App() {
                             ))}
                         </Routes>
                     </Layout>
-                </div>
             </Router>
         </AppProviders>
     )
