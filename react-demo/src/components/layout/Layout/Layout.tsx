@@ -1,5 +1,5 @@
 import '../../../App.css'
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {MainMenu} from "../MainMenu/MainMenu.tsx";
 import {Footer} from "../Footer/Footer.tsx";

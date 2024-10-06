@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, ReactNode } from 'react';
 import {StatisticsProvider} from "./StatisticsProvider.tsx";
 import {TimerProvider} from "./TimeProvider.tsx";
 import {AuthProvider} from "./AuthProvider.tsx";
