@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import {StatisticsProvider} from "./StatisticsProvider.tsx";
 import {TimerProvider} from "./TimeProvider.tsx";
+import {AuthProvider} from "./AuthProvider.tsx";
 
 export interface AppContextType {
   handleLoginAction: () => void;
@@ -20,11 +21,13 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   return (
     <AppContext.Provider value={{ handleLoginAction, handleRegisterAction }}>
-      <StatisticsProvider>
-        <TimerProvider>
-          {children}
-        </TimerProvider>
-      </StatisticsProvider>
+      <AuthProvider>
+        <StatisticsProvider>
+          <TimerProvider>
+            {children}
+          </TimerProvider>
+        </StatisticsProvider>
+      </AuthProvider>
     </AppContext.Provider>
   );
 };

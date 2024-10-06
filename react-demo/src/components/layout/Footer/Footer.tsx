@@ -1,4 +1,4 @@
-import React, {FC, useContext} from 'react';
+import {FC, useContext} from 'react';
 import {Statistics} from "../CommonStats/Statistics.tsx";
 import {StatContext} from "../../../context/StatisticsProvider.tsx";
 import {TimeContext} from "../../../context/TimeProvider.tsx";
