@@ -9,13 +9,17 @@ function App() {
     return (
         <AppProviders>
             <Router>
-                    <Layout>
-                        <Routes>
-                            {routes.map((route) => (
-                                <Route key={route.path} path={route.path} element={<route.element />} />
-                            ))}
-                        </Routes>
-                    </Layout>
+                <Layout>
+                    <Routes>
+                        {routes.map((route) => (
+                            <Route 
+                                key={route.path} 
+                                path={route.path} 
+                                element={route.element({ name: route.name })} 
+                            />
+                        ))}
+                    </Routes>
+                </Layout>
             </Router>
         </AppProviders>
     )
