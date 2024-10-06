@@ -1,9 +1,9 @@
 import './App.css'
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Layout } from "./components/layout/Layout/Layout.tsx";
-import { routes } from './routes/routes.ts';
-import React from "react";
 import {AppProviders} from "./context/AppProviders.tsx";
+import {routes} from "./routes/routes.tsx";
 
 function App() {
     return (

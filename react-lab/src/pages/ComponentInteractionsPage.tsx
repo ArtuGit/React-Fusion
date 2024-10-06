@@ -11,7 +11,6 @@ const ComponentInteractionsPage: React.FC = () => {
 
     return (
         <>
-            <h2 className="text-2xl font-bold mb-4">Component Interactions</h2>
             <ComponentInteractions currentTime={currentTime} />
         </>
     );
