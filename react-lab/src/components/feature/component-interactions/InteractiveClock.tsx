@@ -1,5 +1,4 @@
-import React, {useImperativeHandle, forwardRef, useState, useContext} from 'react';
-import {TimeContext} from "../../../context/TimeProvider.tsx";
+import React, {useImperativeHandle, forwardRef, useState } from 'react';
 
 export interface ClockMethods {
   changeColor: () => void;
@@ -13,9 +12,7 @@ interface InteractiveClockProps {
 
 const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8'];
 
-export const InteractiveClock = forwardRef<ClockMethods, InteractiveClockProps>(({ sharedCount }, ref) => {
-
-  const currentTime = useContext(TimeContext);
+export const InteractiveClock = forwardRef<ClockMethods, InteractiveClockProps>(({ sharedCount, currentTime }, ref) => {
 
   const [color, setColor] = useState(colors[0]);
   const [isShaking, setIsShaking] = useState(false);

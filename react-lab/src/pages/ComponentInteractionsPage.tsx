@@ -1,15 +1,13 @@
 import React, { useContext } from 'react';
 import { ComponentInteractions } from "../components/feature/component-interactions/ComponentInteractions.tsx";
-import { AppContext } from '../context/AppProvider.tsx';
+import {TimeContext} from "../context/TimeProvider.tsx";
 
 const ComponentInteractionsPage: React.FC = () => {
-    const context = useContext(AppContext);
-    
-    if (!context) {
-        throw new Error(`${ComponentInteractionsPage.name} must be used within an AppProvider`);
-    }
+    const currentTime = useContext(TimeContext);
 
-    const { currentTime } = context;
+    if (!currentTime) {
+        return null;
+    }
 
     return (
         <>
