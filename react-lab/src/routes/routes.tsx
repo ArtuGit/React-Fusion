@@ -22,7 +22,7 @@ export const routes = [
         <BoxesPage />
       </MainSection>
     ),
-    name: 'Boxes'
+    name: '"Boxes" game'
   },
   {
     path: '/form-validation',
