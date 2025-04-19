@@ -3,7 +3,8 @@ import { AppBar, Toolbar, Typography, Button, IconButton, Box, useTheme } from '
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link as RouterLink } from 'react-router-dom';
-import { ThemeContext } from '../contexts/ThemeContext';
+
+import { ThemeContext } from '../types/theme.types.ts';
 
 const Header = () => {
   const theme = useTheme();

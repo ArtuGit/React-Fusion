@@ -1,14 +1,7 @@
-import { createContext, useState, useMemo, ReactNode } from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ReactNode, useMemo, useState } from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-
-type ColorMode = 'light' | 'dark';
-
-interface ThemeContextType {
-  toggleColorMode: () => void;
-}
-
-export const ThemeContext = createContext<ThemeContextType | null>(null);
+import { ColorMode, ThemeContext as ThemeContext1 } from '../types/theme.types.ts';
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -37,11 +30,11 @@ export function AppThemeProvider({ children }: ThemeProviderProps) {
   );
 
   return (
-    <ThemeContext.Provider value={colorMode}>
+    <ThemeContext1 value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </ThemeContext.Provider>
+    </ThemeContext1>
   );
 }
