@@ -20,10 +20,10 @@ export function AppThemeProvider({ children }: ThemeProviderProps) {
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
       },
     }),
-    [],
+    []
   );
 
   const theme = useMemo(
@@ -33,7 +33,7 @@ export function AppThemeProvider({ children }: ThemeProviderProps) {
           mode,
         },
       }),
-    [mode],
+    [mode]
   );
 
   return (
@@ -44,4 +44,4 @@ export function AppThemeProvider({ children }: ThemeProviderProps) {
       </ThemeProvider>
     </ThemeContext.Provider>
   );
-} 
+}

@@ -1,13 +1,5 @@
 import { useContext } from 'react';
-import { 
-  AppBar, 
-  Toolbar, 
-  Typography, 
-  Button, 
-  IconButton, 
-  Box, 
-  useTheme 
-} from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, IconButton, Box, useTheme } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link as RouterLink } from 'react-router-dom';
@@ -23,7 +15,7 @@ const Header = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           React MUI TypeScript
         </Typography>
-        
+
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button color="inherit" component={RouterLink} to="/">
             Home
@@ -32,11 +24,7 @@ const Header = () => {
             About
           </Button>
           {colorMode && (
-            <IconButton 
-              sx={{ ml: 1 }} 
-              onClick={colorMode.toggleColorMode} 
-              color="inherit"
-            >
+            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
               {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
           )}
@@ -46,4 +34,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;
