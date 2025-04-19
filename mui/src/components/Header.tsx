@@ -18,14 +18,44 @@ const Header = () => {
         </Typography>
 
         <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button color="inherit" component={RouterLink} to="/">
+          <Button 
+            color="inherit" 
+            component={RouterLink} 
+            to="/"
+            sx={{ 
+              '&:hover': { 
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
+                transform: 'scale(1.05)'
+              }
+            }}
+          >
             Home
           </Button>
-          <Button color="inherit" component={RouterLink} to="/about">
+          <Button 
+            color="inherit" 
+            component={RouterLink} 
+            to="/about"
+            sx={{ 
+              '&:hover': { 
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
+                transform: 'scale(1.05)'
+              }
+            }}
+          >
             About
           </Button>
           {colorMode && (
-            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+            <IconButton 
+              sx={{ 
+                ml: 1,
+                '&:hover': {
+                  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
+                  transform: 'rotate(30deg)'
+                }
+              }} 
+              onClick={colorMode.toggleColorMode} 
+              color="inherit"
+            >
               {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
           )}
