@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
-import { Box, Container } from '@mui/material';
+import { Box, Container, Typography, Stack } from '@mui/material';
 import Header from '../components/Header';
+import StyledLink from '../components/StyledLink';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -15,8 +16,16 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       </Container>
       <Box component="footer" sx={{ py: 3, bgcolor: 'background.paper', mt: 'auto' }}>
         <Container maxWidth={false}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+            <Stack direction="row" spacing={3}>
+              <StyledLink to="/">Home</StyledLink>
+              <StyledLink to="/about">About</StyledLink>
+            </Stack>
+          </Box>
           <Box sx={{ textAlign: 'center' }}>
-            © {new Date().getFullYear()} React MUI TypeScript Project
+            <Typography variant="body2">
+              © {new Date().getFullYear()} React MUI TypeScript Project
+            </Typography>
           </Box>
         </Container>
       </Box>
