@@ -17,20 +17,20 @@ const StyledLink = forwardRef<HTMLAnchorElement, StyledLinkProps>(
 
     const linkStyles = {
       position: 'relative',
-      textDecoration: 'none',
       fontWeight: isActive ? 'bold' : 500,
-      padding: isActive ? '0.1rem 0.3rem' : 'initial',
+      padding: '0.25rem 0.5rem',
+      margin: '0 0.2rem',
       backgroundColor: isActive 
         ? (isDark ? 'rgba(143, 148, 251, 0.3)' : 'rgba(100, 108, 255, 0.1)') 
         : 'transparent',
-      borderRadius: isActive ? '4px' : 'initial',
+      borderRadius: '4px',
+      display: 'inline-block',
+      height: '1.5rem',
+      lineHeight: '1.5rem',
+      boxSizing: 'border-box',
       '&:hover': {
-        textDecoration: 'none',
         backgroundColor: isDark ? '#8f94fb' : '#646cff',
         color: '#fff',
-        padding: '0.1rem 0.3rem',
-        borderRadius: '4px',
-        transition: 'all 0.3s ease-in-out',
       },
     };
 

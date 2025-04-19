@@ -17,12 +17,26 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <Box component="footer" sx={{ py: 3, bgcolor: 'background.paper', mt: 'auto' }}>
         <Container maxWidth={false}>
           <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-            <Stack direction="row" spacing={3}>
+            <Stack 
+              direction="row" 
+              spacing={4} 
+              sx={{ 
+                '& a': { 
+                  width: '80px', 
+                  textAlign: 'center',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  height: '32px',
+                  boxSizing: 'border-box'
+                } 
+              }}
+            >
               <StyledLink to="/">Home</StyledLink>
               <StyledLink to="/about">About</StyledLink>
             </Stack>
           </Box>
-          <Box sx={{ textAlign: 'center' }}>
+          <Box sx={{ textAlign: 'center', mt: 2 }}>
             <Typography variant="body2">
               © {new Date().getFullYear()} React MUI TypeScript Project
             </Typography>
