@@ -11,7 +11,7 @@ const Header = () => {
   const colorMode = useContext(ThemeContext);
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ width: '100%' }}>
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           React MUI TypeScript

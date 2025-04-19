@@ -4,7 +4,7 @@ import MainLayout from '../layouts/MainLayout';
 const AboutPage = () => {
   return (
     <MainLayout>
-      <Paper sx={{ p: 3, textAlign: 'center' }}>
+      <Paper sx={{ p: 3, textAlign: 'center', width: '100%' }}>
         <Typography variant="h4" gutterBottom>
           About
         </Typography>
