@@ -1,7 +1,13 @@
-import AppProviders from './contexts/AppProviders.tsx';
+import { FC } from 'react';
+import { AppProviders } from './contexts/AppProviders';
+import WordLearningPage from './pages/WordLearningPage';
 
-function App() {
-  return <AppProviders></AppProviders>;
-}
+const App: FC = () => {
+  return (
+    <AppProviders>
+      <WordLearningPage />
+    </AppProviders>
+  );
+};
 
 export default App;
