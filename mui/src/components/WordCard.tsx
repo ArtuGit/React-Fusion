@@ -50,7 +50,7 @@ const WordTypography = styled(Typography)(({ theme }) => ({
 export const WordCard: FC<WordCardProps> = ({ languageOneWord, languageTwoWord }) => {
   return (
     <StyledCard>
-      <CardContent sx={{ padding: 0 }}>
+      <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <UpperSection>
           <WordTypography variant="h1" color="text.primary">
             {languageOneWord}
