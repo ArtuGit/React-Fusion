@@ -1,10 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
+import AppProviders from './contexts/AppProviders.tsx';
 
 function App() {
-  return (
-      <Routes>
-      </Routes>
-  );
+  return <AppProviders></AppProviders>;
 }
 
 export default App;
