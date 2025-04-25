@@ -30,7 +30,8 @@ const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: theme.spacing(2),
   boxShadow: theme.shadows[10],
   overflow: 'hidden',
-  transition: 'transform 0.3s ease-in-out',
+  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  transform: 'translateX(0)',
   '&:hover': {
     transform: 'scale(1.02)',
   },
@@ -40,6 +41,7 @@ const WordTypography = styled(Typography)(({ theme }) => ({
   fontSize: '2.5rem',
   fontWeight: 500,
   textAlign: 'center',
+  transition: 'opacity 0.3s ease-in-out',
   [theme.breakpoints.down('sm')]: {
     fontSize: '2rem',
   },
