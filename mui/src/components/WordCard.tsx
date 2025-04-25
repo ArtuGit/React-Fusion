@@ -1,10 +1,8 @@
 import { FC } from 'react';
 import { Card, CardContent, Typography, Box, styled } from '@mui/material';
+import { WordPair } from '../types/word.types';
 
-interface WordCardProps {
-  languageOneWord: string;
-  languageTwoWord: string;
-}
+type WordCardProps = Pick<WordPair, 'sourceWord' | 'targetWord'>;
 
 // Styled components for custom card sections
 const CardSection = styled(Box)(({ theme }) => ({
@@ -47,18 +45,18 @@ const WordTypography = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const WordCard: FC<WordCardProps> = ({ languageOneWord, languageTwoWord }) => {
+export const WordCard: FC<WordCardProps> = ({ sourceWord, targetWord }) => {
   return (
     <StyledCard>
       <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <UpperSection>
           <WordTypography variant="h1" color="text.primary">
-            {languageOneWord}
+            {sourceWord}
           </WordTypography>
         </UpperSection>
         <LowerSection>
           <WordTypography variant="h1" color="background.paper">
-            {languageTwoWord}
+            {targetWord}
           </WordTypography>
         </LowerSection>
       </CardContent>
