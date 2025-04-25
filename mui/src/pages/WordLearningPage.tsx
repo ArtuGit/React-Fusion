@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Container, Box, CircularProgress } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import WordCard from '../components/WordCard';
+import WordSlider from '../components/WordSlider';
 import { api } from '../services/api.service';
 
 export const WordLearningPage: FC = () => {
@@ -39,10 +39,7 @@ export const WordLearningPage: FC = () => {
           justifyContent: 'center',
         }}
       >
-        <WordCard
-          sourceWord={words[0].sourceWord}
-          targetWord={words[0].targetWord}
-        />
+        <WordSlider words={words} />
       </Box>
     </Container>
   );
