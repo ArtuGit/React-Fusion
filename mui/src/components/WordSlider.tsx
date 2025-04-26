@@ -6,10 +6,6 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { WordPair } from '../types/word.types';
 import WordCard from './WordCard';
 
-// Import slick styles
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 interface WordSliderProps {
   words: WordPair[];
 }
