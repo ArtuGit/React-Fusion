@@ -1,20 +1,41 @@
 import { FC, useState } from 'react';
 import Slider from 'react-slick';
-import { Box, IconButton, styled } from '@mui/material';
+import { Box, IconButton, styled, Typography } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { WordPair } from '../types/word.types';
 import WordCard from './WordCard';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 interface WordSliderProps {
   words: WordPair[];
 }
+
+const OuterContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const SliderCardWrapper = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  width: '100%',
+  maxWidth: '600px',
+  margin: '0 auto',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
 
 const ArrowButton = styled(IconButton)(({ theme }) => ({
   position: 'absolute',
   top: '50%',
   transform: 'translateY(-50%)',
-  zIndex: 1,
+  zIndex: 2,
   backgroundColor: theme.palette.background.paper,
   '&:hover': {
     backgroundColor: theme.palette.action.hover,
@@ -25,74 +46,13 @@ const ArrowButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const SliderContainer = styled(Box)(({ theme }) => ({
-  width: '100%',
-  maxWidth: '800px',
-  margin: '0 auto',
-  padding: '0 60px',
-  [theme.breakpoints.down('sm')]: {
-    padding: '0 30px',
-  },
-  '.slick-slider': {
-    position: 'relative',
-    display: 'block',
-    boxSizing: 'border-box',
-  },
-  '.slick-list': {
-    overflow: 'hidden',
-    margin: '0',
-    padding: '0',
-  },
-  '.slick-track': {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  '.slick-slide': {
-    opacity: 0,
-    transition: 'all 0.5s ease-in-out',
-    '&.slick-active': {
-      opacity: 1,
-    },
-  },
-  // Custom animation classes
-  '.slide-right-enter': {
-    transform: 'translateX(-100%)',
-    opacity: 0,
-  },
-  '.slide-right-enter-active': {
-    transform: 'translateX(0)',
-    opacity: 1,
-    transition: 'all 500ms ease-in-out',
-  },
-  '.slide-right-exit': {
-    transform: 'translateX(0)',
-    opacity: 1,
-  },
-  '.slide-right-exit-active': {
-    transform: 'translateX(100%)',
-    opacity: 0,
-    transition: 'all 500ms ease-in-out',
-  },
-  '.slide-left-enter': {
-    transform: 'translateX(100%)',
-    opacity: 0,
-  },
-  '.slide-left-enter-active': {
-    transform: 'translateX(0)',
-    opacity: 1,
-    transition: 'all 500ms ease-in-out',
-  },
-  '.slide-left-exit': {
-    transform: 'translateX(0)',
-    opacity: 1,
-  },
-  '.slide-left-exit-active': {
-    transform: 'translateX(-100%)',
-    opacity: 0,
-    transition: 'all 500ms ease-in-out',
-  },
+const Counter = styled(Typography)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.primary.dark,
+  fontWeight: 500,
+  fontSize: '1.3rem',
+  letterSpacing: 1,
 }));
 
 const NextArrow: FC<any> = (props) => {
@@ -104,9 +64,8 @@ const NextArrow: FC<any> = (props) => {
   return (
     <ArrowButton
       onClick={handleClick}
-      sx={{
-        right: { xs: 0, sm: 0 },
-      }}
+      sx={{ right: -32 }}
+      aria-label="next"
     >
       <ArrowForwardIosIcon />
     </ArrowButton>
@@ -122,9 +81,8 @@ const PrevArrow: FC<any> = (props) => {
   return (
     <ArrowButton
       onClick={handleClick}
-      sx={{
-        left: { xs: 0, sm: 0 },
-      }}
+      sx={{ left: -32 }}
+      aria-label="previous"
     >
       <ArrowBackIosNewIcon />
     </ArrowButton>
@@ -133,6 +91,7 @@ const PrevArrow: FC<any> = (props) => {
 
 export const WordSlider: FC<WordSliderProps> = ({ words }) => {
   const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('right');
+  const [current, setCurrent] = useState(0);
 
   const settings = {
     dots: false,
@@ -145,27 +104,33 @@ export const WordSlider: FC<WordSliderProps> = ({ words }) => {
     pauseOnHover: true,
     nextArrow: <NextArrow onDirectionChange={setSlideDirection} />,
     prevArrow: <PrevArrow onDirectionChange={setSlideDirection} />,
-    beforeChange: (_: number, next: number) => {
-      const direction = next > _ ? 'right' : 'left';
+    beforeChange: (oldIndex: number, next: number) => {
+      const direction = next > oldIndex ? 'right' : 'left';
       setSlideDirection(direction);
     },
+    afterChange: (index: number) => setCurrent(index),
     cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
     className: `slide-${slideDirection}`,
   };
 
   return (
-    <SliderContainer>
-      <Slider {...settings}>
-        {words.map((word) => (
-          <div key={word.id}>
-            <WordCard
-              sourceWord={word.sourceWord}
-              targetWord={word.targetWord}
-            />
-          </div>
-        ))}
-      </Slider>
-    </SliderContainer>
+    <OuterContainer>
+      <SliderCardWrapper>
+        <Slider {...settings} style={{ width: '100%' }}>
+          {words.map((word) => (
+            <div key={word.id}>
+              <WordCard
+                sourceWord={word.sourceWord}
+                targetWord={word.targetWord}
+              />
+            </div>
+          ))}
+        </Slider>
+      </SliderCardWrapper>
+      <Counter>
+        {words.length ? `${current + 1} of ${words.length}` : null}
+      </Counter>
+    </OuterContainer>
   );
 };
 
