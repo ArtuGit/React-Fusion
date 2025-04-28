@@ -13,8 +13,8 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     <MUIThemeProvider theme={theme}>
       <CssBaseline />
         <MainLayout>
+          {children}
         </MainLayout>
-      {children}
     </MUIThemeProvider>
   );
 };
