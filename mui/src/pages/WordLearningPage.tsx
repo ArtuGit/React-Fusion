@@ -21,8 +21,6 @@ export const WordLearningPage: FC = () => {
     <Container maxWidth="lg">
       <Box
         sx={{
-          minHeight: '100%',
-          height: '100vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
