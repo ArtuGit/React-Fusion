@@ -12,25 +12,28 @@ export const WordLearningPage: FC = () => {
 
   if (isLoading || !words) {
     return (
+      <Container maxWidth="lg">
         <Box
           sx={{
-              minHeight: '100%',
-              flex: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+            minHeight: '100%',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <CircularProgress size={60} />
         </Box>
+      </Container>
     );
   }
 
   return (
+    <Container maxWidth="lg">
       <Box
         sx={{
-          minHeight: '500px',
-          flex: 1,
+          minHeight: '100%',
+          height: '100vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -38,6 +41,7 @@ export const WordLearningPage: FC = () => {
       >
         <WordSlider words={words} />
       </Box>
+    </Container>
   );
 };
 
