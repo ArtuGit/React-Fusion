@@ -14,7 +14,8 @@ interface WordSliderProps {
 }
 
 const OuterContainer = styled(Box)(({ theme }) => ({
-  width: '100%',
+  width: '90%',
+  maxWidth: '600px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -24,7 +25,6 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 const SliderCardWrapper = styled(Box)(({ theme }) => ({
   position: 'relative',
   width: '100%',
-  maxWidth: '600px',
   margin: '0 auto',
   display: 'flex',
   alignItems: 'center',
@@ -55,35 +55,27 @@ const Counter = styled(Typography)(({ theme }) => ({
   letterSpacing: 1,
 }));
 
-const NextArrow: FC<any> = (props) => {
+const NextArrow: FC<any> = props => {
   const { onClick, onDirectionChange } = props;
   const handleClick = (e: React.MouseEvent) => {
     onDirectionChange('right');
     onClick?.(e);
   };
   return (
-    <ArrowButton
-      onClick={handleClick}
-      sx={{ right: -32 }}
-      aria-label="next"
-    >
+    <ArrowButton onClick={handleClick} sx={{ right: -32 }} aria-label="next">
       <ArrowForwardIosIcon />
     </ArrowButton>
   );
 };
 
-const PrevArrow: FC<any> = (props) => {
+const PrevArrow: FC<any> = props => {
   const { onClick, onDirectionChange } = props;
   const handleClick = (e: React.MouseEvent) => {
     onDirectionChange('left');
     onClick?.(e);
   };
   return (
-    <ArrowButton
-      onClick={handleClick}
-      sx={{ left: -32 }}
-      aria-label="previous"
-    >
+    <ArrowButton onClick={handleClick} sx={{ left: -32 }} aria-label="previous">
       <ArrowBackIosNewIcon />
     </ArrowButton>
   );
@@ -117,21 +109,16 @@ export const WordSlider: FC<WordSliderProps> = ({ words }) => {
     <OuterContainer>
       <SliderCardWrapper>
         <Slider {...settings} style={{ width: '100%' }}>
-          {words.map((word) => (
+          {words.map(word => (
             <div key={word.id}>
-              <WordCard
-                sourceWord={word.sourceWord}
-                targetWord={word.targetWord}
-              />
+              <WordCard sourceWord={word.sourceWord} targetWord={word.targetWord} />
             </div>
           ))}
         </Slider>
       </SliderCardWrapper>
-      <Counter>
-        {words.length ? `${current + 1} of ${words.length}` : null}
-      </Counter>
+      <Counter>{words.length ? `${current + 1} of ${words.length}` : null}</Counter>
     </OuterContainer>
   );
 };
 
-export default WordSlider; 
+export default WordSlider;
