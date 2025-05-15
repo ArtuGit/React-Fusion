@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Container, Box, CircularProgress } from '@mui/material';
+import { Box, CircularProgress, Container } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import WordSlider from '../components/WordSlider';
 import { api } from '../services/api.service';
@@ -10,22 +10,11 @@ export const WordLearningPage: FC = () => {
     queryFn: api.getWords,
   });
 
+  let content;
   if (isLoading || !words) {
-    return (
-      <Container maxWidth="lg">
-        <Box
-          sx={{
-            minHeight: '100%',
-            height: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <CircularProgress size={60} />
-        </Box>
-      </Container>
-    );
+    content = <CircularProgress size={60} />;
+  } else {
+    content = <WordSlider words={words} />;
   }
 
   return (
@@ -39,10 +28,10 @@ export const WordLearningPage: FC = () => {
           justifyContent: 'center',
         }}
       >
-        <WordSlider words={words} />
+        {content}
       </Box>
     </Container>
   );
 };
 
-export default WordLearningPage; 
+export default WordLearningPage;
