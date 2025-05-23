@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Box } from '@mui/material';
+import Header from './Header.tsx';
 
 export const MainLayout = ({ children }: { children?: ReactNode }) => {
   return (
@@ -19,9 +20,9 @@ export const MainLayout = ({ children }: { children?: ReactNode }) => {
           border: '1px solid red', // for debug
         }}
       >
-        {/* Place header or top content here if needed */}
+        <Header />
       </Box>
-      {/* Bottom section: takes the rest of the space */}
+
       <Box
         sx={{
           flex: 1,
