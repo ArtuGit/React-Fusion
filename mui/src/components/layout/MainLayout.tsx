@@ -7,11 +7,31 @@ export const MainLayout = ({ children }: { children?: ReactNode }) => {
       sx={{
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        border: '1px solid blue', // for debug
       }}
     >
-      {children}
+      {/* Top section: 10% height, but at least 20rem */}
+      <Box
+        sx={{
+          height: '10%',
+          minHeight: '2.5rem',
+          border: '1px solid red', // for debug
+        }}
+      >
+        {/* Place header or top content here if needed */}
+      </Box>
+      {/* Bottom section: takes the rest of the space */}
+      <Box
+        sx={{
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 };
