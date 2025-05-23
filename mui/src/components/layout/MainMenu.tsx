@@ -1,7 +1,6 @@
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import SchoolIcon from '@mui/icons-material/School';
-import SettingsIcon from '@mui/icons-material/Settings';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { FC } from 'react';
 
 const MainMenu: FC = () => (
@@ -19,21 +18,15 @@ const MainMenu: FC = () => (
   >
     <ListItem button selected sx={{ width: 'auto' }}>
       <ListItemIcon sx={{ minWidth: 0, mr: 1 }}>
-        <HomeIcon color="primary" />
+        <RocketLaunchIcon color="primary" />
       </ListItemIcon>
-      <ListItemText primary="Home" />
+      <ListItemText primary="Go!" />
     </ListItem>
     <ListItem button sx={{ width: 'auto' }}>
       <ListItemIcon sx={{ minWidth: 0, mr: 1 }}>
-        <SchoolIcon color="secondary" />
+        <CloudUploadIcon color="action" />
       </ListItemIcon>
-      <ListItemText primary="Learn" />
-    </ListItem>
-    <ListItem button sx={{ width: 'auto' }}>
-      <ListItemIcon sx={{ minWidth: 0, mr: 1 }}>
-        <SettingsIcon color="action" />
-      </ListItemIcon>
-      <ListItemText primary="Settings" />
+      <ListItemText primary="Upload" />
     </ListItem>
   </List>
 );
