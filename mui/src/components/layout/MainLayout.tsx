@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Box } from '@mui/material';
+import Header from './Header.tsx';
 
 export const MainLayout = ({ children }: { children?: ReactNode }) => {
   return (
@@ -7,11 +8,21 @@ export const MainLayout = ({ children }: { children?: ReactNode }) => {
       sx={{
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        flexDirection: 'column',
       }}
     >
-      {children}
+      <Header />
+
+      <Box
+        sx={{
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 };
