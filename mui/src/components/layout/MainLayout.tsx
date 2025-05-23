@@ -9,19 +9,9 @@ export const MainLayout = ({ children }: { children?: ReactNode }) => {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        border: '1px solid blue', // for debug
       }}
     >
-      {/* Top section: 10% height, but at least 20rem */}
-      <Box
-        sx={{
-          height: '10%',
-          minHeight: '2.5rem',
-          border: '1px solid red', // for debug
-        }}
-      >
-        <Header />
-      </Box>
+      <Header />
 
       <Box
         sx={{
