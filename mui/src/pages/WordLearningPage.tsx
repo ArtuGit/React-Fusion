@@ -1,20 +1,34 @@
-import { FC } from 'react';
-import { Box, CircularProgress, Container } from '@mui/material';
-import { useQuery } from '@tanstack/react-query';
+import { FC, useEffect } from 'react';
+import { Alert, Box, CircularProgress, Container } from '@mui/material';
 import WordSlider from '../components/WordSlider';
-import { api } from '../services/api.service';
+import { useWordsStore } from '../stores/useWordsStore';
 
 export const WordLearningPage: FC = () => {
-  const { data: words, isLoading } = useQuery({
-    queryKey: ['words'],
-    queryFn: api.getWords,
-  });
+  const { words, isLoading, error, fetchWords, clearError } = useWordsStore();
+
+  useEffect(() => {
+    if (words.length === 0) {
+      fetchWords();
+    }
+  }, [words.length, fetchWords]);
 
   let content;
-  if (isLoading || !words) {
+  if (isLoading) {
     content = <CircularProgress size={60} />;
-  } else {
+  } else if (error) {
+    content = (
+      <Alert
+        severity="error"
+        onClose={clearError}
+        action={<button onClick={fetchWords}>Retry</button>}
+      >
+        {error}
+      </Alert>
+    );
+  } else if (words.length > 0) {
     content = <WordSlider words={words} />;
+  } else {
+    content = <Alert severity="info">No words available</Alert>;
   }
 
   return (
