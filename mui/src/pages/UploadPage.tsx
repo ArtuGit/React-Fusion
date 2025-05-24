@@ -205,7 +205,7 @@ export const UploadPage: FC = () => {
                         margin: '0 !important',
                         borderRadius: '8px !important',
                         fontSize: '0.875rem !important',
-                      },,
+                      },
                     }}
                   >
                     <SyntaxHighlighter
