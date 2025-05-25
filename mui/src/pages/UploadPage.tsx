@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Box, Container } from '@mui/material';
 
 import UploadInstruction from '../components/upload/UploadInstruction.tsx';
+import UploadForm from '../components/upload/UploadForm.tsx';
 
 export const UploadPage: FC = () => {
   return (
@@ -15,7 +16,21 @@ export const UploadPage: FC = () => {
           py: 4,
         }}
       >
-        <UploadInstruction />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 4,
+            width: '100%',
+          }}
+        >
+          <Box sx={{ flex: 1 }}>
+            <UploadInstruction />
+          </Box>
+          <Box sx={{ flex: 1 }}>
+            <UploadForm />
+          </Box>
+        </Box>
       </Box>
     </Container>
   );
