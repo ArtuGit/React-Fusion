@@ -5,7 +5,7 @@ import UploadInstruction from '../components/upload/UploadInstruction.tsx';
 
 export const UploadPage: FC = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Box
         sx={{
           display: 'flex',
