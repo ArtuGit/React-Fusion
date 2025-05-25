@@ -5,65 +5,17 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const demoMarkdown = `
-# Upload Page Demo
+# Upload your word pairs
 
-Welcome to the **Upload Page**! This page demonstrates markdown rendering capabilities.
+Ask your AI agent to create a JSON file with word pairs in the following format:
+  - id: Unique identifier for the word pair
+  - sourceWord: The word in the source language
+  - targetWord: The word in the target language
+  
 
-## Features
+### Blockquote
+> This is a blockquote example.
 
-### Text Formatting
-- **Bold text** and *italic text*
-- ~~Strikethrough text~~
-- \`Inline code\`
-
-### Lists
-1. First ordered item
-2. Second ordered item
-3. Third ordered item
-
-#### Unordered List:
-- Bullet point one
-- Bullet point two
-  - Nested bullet
-  - Another nested bullet
-
-### Code Block
-\`\`\`typescript
-interface WordPair {
-  id: string;
-  sourceWord: string;
-  targetWord: string;
-}
-
-const example: WordPair = {
-  id: '1',
-  sourceWord: 'Hello',
-  targetWord: 'Hola'
-};
-
-// Function to create a new word pair
-function createWordPair(source: string, target: string): WordPair {
-  return {
-    id: Math.random().toString(36).substr(2, 9),
-    sourceWord: source,
-    targetWord: target
-  };
-}
-\`\`\`
-
-### JavaScript Example
-\`\`\`javascript
-const words = [
-  { id: '1', sourceWord: 'Hello', targetWord: 'Hola' },
-  { id: '2', sourceWord: 'Goodbye', targetWord: 'Adiós' }
-];
-
-const filteredWords = words.filter(word => 
-  word.sourceWord.toLowerCase().includes('hello')
-);
-
-console.log(filteredWords);
-\`\`\`
 
 ### JSON Example
 \`\`\`json
@@ -86,29 +38,6 @@ console.log(filteredWords);
   }
 }
 \`\`\`
-
-### Links and Images
-- [React Documentation](https://reactjs.org/)
-- [Material-UI](https://mui.com/)
-
-### Blockquote
-> This is a blockquote example.
-> It can span multiple lines.
-
----
-
-## Upload Functionality
-*Coming soon!* This page will allow users to:
-- Upload word pairs
-- Import CSV files
-- Manage vocabulary lists
-
-### Tables
-| Source Language | Target Language | Status |
-|-----------------|-----------------|--------|
-| English         | Spanish         | ✅     |
-| Polish          | English         | ✅     |
-| French          | English         | 🚧     |
 `;
 
 export const UploadPage: FC = () => {
@@ -173,6 +102,26 @@ export const UploadPage: FC = () => {
                   {children}
                 </Box>
               ),
+              blockquote: ({ children }) => (
+                <Box
+                  component="blockquote"
+                  sx={{
+                    margin: 2,
+                    padding: 2,
+                    borderLeft: '4px solid',
+                    borderColor: 'primary.main',
+                    backgroundColor: 'rgba(53, 146, 196, 0.1)', // Semi-transparent primary color
+                    borderRadius: 1,
+                    fontStyle: 'italic',
+                    '& p': {
+                      margin: 0,
+                      color: 'text.secondary',
+                    },
+                  }}
+                >
+                  {children}
+                </Box>
+              ),
               code: ({ children, className, ...props }) => {
                 const match = /language-(\w+)/.exec(className || '');
                 const language = match ? match[1] : '';
@@ -198,25 +147,14 @@ export const UploadPage: FC = () => {
                 }
 
                 return (
-                  <Box
-                    sx={{
-                      my: 2,
-                      '& pre': {
-                        margin: '0 !important',
-                        borderRadius: '8px !important',
-                        fontSize: '0.875rem !important',
-                      },
-                    }}
+                  <SyntaxHighlighter
+                    style={vscDarkPlus}
+                    language={language}
+                    PreTag="div"
+                    {...props}
                   >
-                    <SyntaxHighlighter
-                      style={vscDarkPlus}
-                      language={language}
-                      PreTag="div"
-                      {...props}
-                    >
-                      {String(children).replace(/\n$/, '')}
-                    </SyntaxHighlighter>
-                  </Box>
+                    {String(children).replace(/\n$/, '')}
+                  </SyntaxHighlighter>
                 );
               },
             }}
