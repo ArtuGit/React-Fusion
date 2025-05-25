@@ -15,7 +15,7 @@ as an array of objects with the following structure:
   - \`targetWord\`: The word in the target language
   
 
-### Example Prompt
+### Prompt Example
 > Please, create JSON with an array of the  following structure:
 >  - \`id\`: Unique identifier for the word pair (number)
 >  - \`sourceWord\`: The word in the source language
@@ -27,7 +27,7 @@ as an array of objects with the following structure:
 > - Topic: Common phrases
 > - Limit: 30 word pairs
 
-### JSON Example
+### JSON Output Example
 \`\`\`json
 [
   {
