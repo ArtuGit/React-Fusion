@@ -7,36 +7,46 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const demoMarkdown = `
 # Upload your word pairs
 
-Ask your AI agent to create a JSON file with word pairs in the following format:
-  - id: Unique identifier for the word pair
-  - sourceWord: The word in the source language
-  - targetWord: The word in the target language
+Ask your AI agent to create a JSON with word pairs on a given language and topic 
+as an array of objects with the following structure:
+
+  - \`id\`: Unique identifier for the word pair (number)
+  - \`sourceWord\`: The word in the source language
+  - \`targetWord\`: The word in the target language
   
 
-### Blockquote
-> This is a blockquote example.
-
+### Example Prompt
+> Please, create JSON with an array of the  following structure:
+>  - \`id\`: Unique identifier for the word pair (number)
+>  - \`sourceWord\`: The word in the source language
+>  - \`targetWord\`: The word in the target language
+>
+>   Parameters:
+> - Source language: Polish
+> - Target language: English
+> - Topic: Common phrases
+> - Limit: 30 word pairs
 
 ### JSON Example
 \`\`\`json
-{
-  "words": [
-    {
-      "id": "1",
-      "sourceWord": "Good morning",
-      "targetWord": "Buenos días"
-    },
-    {
-      "id": "2", 
-      "sourceWord": "Thank you",
-      "targetWord": "Gracias"
-    }
-  ],
-  "metadata": {
-    "language": "es",
-    "count": 2
-  }
-}
+[
+  {
+    "id": 1,
+    "sourceWord": "Dzień dobry",
+    "targetWord": "Good morning / Good day"
+  },
+  {
+    "id": 2,
+    "sourceWord": "Do widzenia",
+    "targetWord": "Goodbye"
+  },
+  {
+    "id": 3,
+    "sourceWord": "Cześć",
+    "targetWord": "Hi / Hello / Bye (informal)"
+  },
+  ...
+]
 \`\`\`
 `;
 
