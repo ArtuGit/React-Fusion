@@ -19,7 +19,7 @@ const mockWords: WordPairList = [
   { id: '16', sourceWord: 'Wszystkiego najlepszego', targetWord: 'All the best' },
   { id: '17', sourceWord: 'Powodzenia', targetWord: 'Good luck' },
   { id: '18', sourceWord: 'Rozumiem', targetWord: 'I understand' },
-  { id: '19', sourceWord: 'Nie rozumiem', targetWord: "'I don\'t understand'},
+  { id: '19', sourceWord: 'Nie rozumiem', targetWord: "I don't understand" },
   { id: '20', sourceWord: 'Dobry wieczór', targetWord: 'Good evening' },
 ];
 
