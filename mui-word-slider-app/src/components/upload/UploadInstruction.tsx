@@ -145,7 +145,7 @@ const UploadInstruction: FC = () => {
               );
             }
 
-                        return (
+            return (
               <SyntaxHighlighter style={vscDarkPlus as any} language={language} PreTag="div">
                 {String(children).replace(/\n$/, '')}
               </SyntaxHighlighter>
