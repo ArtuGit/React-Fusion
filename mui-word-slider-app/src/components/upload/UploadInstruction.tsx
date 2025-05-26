@@ -121,7 +121,7 @@ const UploadInstruction: FC = () => {
               {children}
             </Box>
           ),
-          code: ({ children, className, ...props }) => {
+          code: ({ children, className }) => {
             const match = /language-(\w+)/.exec(className || '');
             const language = match ? match[1] : '';
             const isInline = !match;
@@ -145,8 +145,8 @@ const UploadInstruction: FC = () => {
               );
             }
 
-            return (
-              <SyntaxHighlighter style={vscDarkPlus} language={language} PreTag="div" {...props}>
+                        return (
+              <SyntaxHighlighter style={vscDarkPlus as any} language={language} PreTag="div">
                 {String(children).replace(/\n$/, '')}
               </SyntaxHighlighter>
             );

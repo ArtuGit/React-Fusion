@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { Box, IconButton, styled, Typography } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import { WordPair } from '../types/word.types';
+import { WordPair } from '../../types/word.types';
 import WordCard from './WordCard';
 
 import 'slick-carousel/slick/slick.css';
@@ -18,7 +18,7 @@ interface ArrowProps {
   onDirectionChange: (direction: 'left' | 'right') => void;
 }
 
-const OuterContainer = styled(Box)(({ _theme }) => ({
+const OuterContainer = styled(Box)(() => ({
   width: '90%',
   maxWidth: '600px',
   display: 'flex',
@@ -27,13 +27,28 @@ const OuterContainer = styled(Box)(({ _theme }) => ({
   justifyContent: 'center',
 }));
 
-const SliderCardWrapper = styled(Box)(({ _theme }) => ({
+const SliderCardWrapper = styled(Box)(() => ({
   position: 'relative',
   width: '100%',
   margin: '0 auto',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  '& .slick-slider': {
+    width: '100%',
+  },
+  '& .slick-list': {
+    width: '100%',
+    margin: '0 auto',
+  },
+  '& .slick-track': {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  '& .slick-slide': {
+    '& > div': {
+      width: '100%',
+      display: 'flex !important',
+      justifyContent: 'center',
+    },
+  },
 }));
 
 const ArrowButton = styled(IconButton)(({ theme }) => ({
@@ -113,7 +128,7 @@ export const WordSlider: FC<WordSliderProps> = ({ words }) => {
   return (
     <OuterContainer>
       <SliderCardWrapper>
-        <Slider {...settings} style={{ width: '100%' }}>
+        <Slider {...settings}>
           {words.map(word => (
             <div key={word.id}>
               <WordCard sourceWord={word.sourceWord} targetWord={word.targetWord} />

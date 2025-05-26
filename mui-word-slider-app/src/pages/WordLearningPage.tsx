@@ -38,6 +38,8 @@ export const WordLearningPage: FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          width: '100%',
+          py: 4,
         }}
       >
         {content}

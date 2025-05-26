@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Box, Card, CardContent, styled, Typography } from '@mui/material';
-import { WordPair } from '../types/word.types';
+import { WordPair } from '../../types/word.types';
 
 type WordCardProps = Pick<WordPair, 'sourceWord' | 'targetWord'>;
 
