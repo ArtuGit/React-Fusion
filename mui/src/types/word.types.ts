@@ -4,4 +4,4 @@ export interface WordPair {
   targetWord: string;
 }
 
-export type WordPairList = WordPair[]; 
+export type WordPairList = WordPair[];

@@ -13,7 +13,12 @@ interface WordSliderProps {
   words: WordPair[];
 }
 
-const OuterContainer = styled(Box)(({ theme }) => ({
+interface ArrowProps {
+  onClick?: (event: React.MouseEvent) => void;
+  onDirectionChange: (direction: 'left' | 'right') => void;
+}
+
+const OuterContainer = styled(Box)(({ _theme }) => ({
   width: '90%',
   maxWidth: '600px',
   display: 'flex',
@@ -22,7 +27,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-const SliderCardWrapper = styled(Box)(({ theme }) => ({
+const SliderCardWrapper = styled(Box)(({ _theme }) => ({
   position: 'relative',
   width: '100%',
   margin: '0 auto',
@@ -55,7 +60,7 @@ const Counter = styled(Typography)(({ theme }) => ({
   letterSpacing: 1,
 }));
 
-const NextArrow: FC<any> = props => {
+const NextArrow: FC<ArrowProps> = props => {
   const { onClick, onDirectionChange } = props;
   const handleClick = (e: React.MouseEvent) => {
     onDirectionChange('right');
@@ -68,7 +73,7 @@ const NextArrow: FC<any> = props => {
   );
 };
 
-const PrevArrow: FC<any> = props => {
+const PrevArrow: FC<ArrowProps> = props => {
   const { onClick, onDirectionChange } = props;
   const handleClick = (e: React.MouseEvent) => {
     onDirectionChange('left');

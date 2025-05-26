@@ -15,11 +15,11 @@ const mockWords: WordPairList = [
   { id: '12', sourceWord: 'Smacznego', targetWord: 'Enjoy your meal' },
   { id: '13', sourceWord: 'Na zdrowie', targetWord: 'Cheers' },
   { id: '14', sourceWord: 'Gdzie jest...?', targetWord: 'Where is...?' },
-  { id: '15', sourceWord: 'Co słychać?', targetWord: 'What\'s up?' },
+  { id: '15', sourceWord: 'Co słychać?', targetWord: "What's up?" },
   { id: '16', sourceWord: 'Wszystkiego najlepszego', targetWord: 'All the best' },
   { id: '17', sourceWord: 'Powodzenia', targetWord: 'Good luck' },
   { id: '18', sourceWord: 'Rozumiem', targetWord: 'I understand' },
-  { id: '19', sourceWord: 'Nie rozumiem', targetWord: 'I don\'t understand' },
+  { id: '19', sourceWord: 'Nie rozumiem', targetWord: "'I don\'t understand'},
   { id: '20', sourceWord: 'Dobry wieczór', targetWord: 'Good evening' },
 ];
 
@@ -31,5 +31,5 @@ export const api = {
     // Simulate network delay between 500ms and 1500ms
     await delay(Math.random() * 1000 + 500);
     return mockWords;
-  }
-}; 
+  },
+};

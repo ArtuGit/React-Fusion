@@ -11,7 +11,7 @@ interface WordsState {
   clearError: () => void;
 }
 
-export const useWordsStore = create<WordsState>((set, get) => ({
+export const useWordsStore = create<WordsState>((set, _get) => ({
   words: [],
   isLoading: false,
   error: null,
