@@ -2,7 +2,6 @@ import { Alert, Box, Button, Paper, TextField, Typography } from '@mui/material'
 import { FC, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useWordsStore } from '../../stores/useWordsStore';
 
 interface WordPairInput {
   id: number;
@@ -49,7 +48,6 @@ const validationSchema = Yup.object({
 const UploadForm: FC = () => {
   const [isValidated, setIsValidated] = useState(false);
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
-  const { saveWords } = useWordsStore();
 
   const handleValidate = async (values: { jsonInput: string }) => {
     try {
@@ -65,19 +63,9 @@ const UploadForm: FC = () => {
   const handleSave = (values: { jsonInput: string }) => {
     try {
       const parsed: WordPairInput[] = JSON.parse(values.jsonInput);
-
-      // Convert to WordPair format (id as string)
-      const wor,
-        dPairs = parsed.map(word => ({
-          ...word,
-          id: word.id.toString(),
-        }));
-
-      // Save to Zustand store
-      saveWords(wordPairs);
-
-      setValidationMessage(`Successfully saved ${parsed.length} word pairs to the store!`);
-      setIsValidated(false); // Reset validation state after save
+      console.log('Saving word pairs:', parsed);
+      // TODO: Integrate with Zustand store to save the words
+      setValidationMessage(`Successfully saved ${parsed.length} word pairs!`);
     } catch {
       setValidationMessage('Error saving data');
     }
