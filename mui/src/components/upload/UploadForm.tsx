@@ -1,7 +1,8 @@
-import { Alert, Box, Button, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Paper, TextField, Typography } from '@mui/material';
 import { FC, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { useSnackbar } from 'notistack';
 import { useWordsStore } from '../../stores/useWordsStore';
 
 interface WordPairInput {
@@ -48,17 +49,19 @@ const validationSchema = Yup.object({
 
 const UploadForm: FC = () => {
   const [isValidated, setIsValidated] = useState(false);
-  const [validationMessage, setValidationMessage] = useState<string | null>(null);
   const { saveWords } = useWordsStore();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleValidate = async (values: { jsonInput: string }) => {
     try {
       await validationSchema.validate(values);
       setIsValidated(true);
-      setValidationMessage('JSON is valid!');
+      enqueueSnackbar('JSON is valid!', { variant: 'success' });
     } catch (error) {
       setIsValidated(false);
-      setValidationMessage(error instanceof Error ? error.message : 'Validation failed');
+      enqueueSnackbar(error instanceof Error ? error.message : 'Validation failed', {
+        variant: 'error',
+      });
     }
   };
 
@@ -69,10 +72,12 @@ const UploadForm: FC = () => {
       // Save to Zustand store
       saveWords(parsed);
 
-      setValidationMessage(`Successfully saved ${parsed.length} word pairs to the store!`);
+      enqueueSnackbar(`Successfully saved ${parsed.length} word pairs to the store!`, {
+        variant: 'success',
+      });
       setIsValidated(false); // Reset validation state after save
     } catch {
-      setValidationMessage('Error saving data');
+      enqueueSnackbar('Error saving data', { variant: 'error' });
     }
   };
 
@@ -128,16 +133,6 @@ const UploadForm: FC = () => {
                 }}
               />
             </Box>
-
-            {validationMessage && (
-              <Alert
-                severity={isValidated ? 'success' : 'error'}
-                sx={{ mb: 2 }}
-                onClose={() => setValidationMessage(null)}
-              >
-                {validationMessage}
-              </Alert>
-            )}
 
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button
