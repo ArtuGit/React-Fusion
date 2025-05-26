@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { WordPairList } from '../types/word.types';
+import { WordPair, WordPairList } from '../types/word.types';
 import { api } from '../services/api.service';
 
 interface WordsState {
@@ -7,6 +7,7 @@ interface WordsState {
   isLoading: boolean;
   error: string | null;
   fetchWords: () => Promise<void>;
+  saveWords: (newWords: WordPair[]) => void;
   clearError: () => void;
 }
 
@@ -26,6 +27,10 @@ export const useWordsStore = create<WordsState>((set, get) => ({
         isLoading: false,
       });
     }
+  },
+
+  saveWords: (newWords: WordPair[]) => {
+    set({ words: newWords, error: null });
   },
 
   clearError: () => set({ error: null }),
