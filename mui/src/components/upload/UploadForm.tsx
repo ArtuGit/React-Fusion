@@ -113,12 +113,12 @@ const UploadForm: FC = () => {
                 variant="outlined"
                 placeholder={`[
   {
-    "id": 1,
+    "id": "1",
     "sourceWord": "Hello",
     "targetWord": "Hola"
   },
   {
-    "id": 2,
+    "id": "2",
     "sourceWord": "Goodbye",
     "targetWord": "Adiós"
   }
