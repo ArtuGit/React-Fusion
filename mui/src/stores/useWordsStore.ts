@@ -30,13 +30,7 @@ export const useWordsStore = create<WordsState>((set, get) => ({
   },
 
   saveWords: (newWords: WordPair[]) => {
-    // Convert numeric IDs to strings to match WordPair interface
-    const convertedWords: WordPair[] = newWords.map(word => ({
-      ...word,
-      id: word.id.toString(),
-    }));
-
-    set({ words: convertedWords, error: null });
+    set({ words: newWords, error: null });
   },
 
   clearError: () => set({ error: null }),

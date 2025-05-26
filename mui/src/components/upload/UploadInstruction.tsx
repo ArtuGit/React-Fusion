@@ -5,19 +5,19 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const UPLOAD_INSTRUCTION_MD = `
-# Upload your word pairs
+## Upload your word pairs
 
 Ask your AI agent to create a JSON with word pairs on a given language and topic 
 as an array of objects with the following structure:
 
-  - \`id\`: Unique identifier for the word pair (number)
+  - \`id\`: Unique identifier for the word pair (string)
   - \`sourceWord\`: The word in the source language
   - \`targetWord\`: The word in the target language
   
 
 ### Prompt Example
 > Please, create JSON with an array of the  following structure:
->  - \`id\`: Unique identifier for the word pair (number)
+>  - \`id\`: Unique identifier for the word pair (string)
 >  - \`sourceWord\`: The word in the source language
 >  - \`targetWord\`: The word in the target language
 >

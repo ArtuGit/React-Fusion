@@ -2,9 +2,10 @@ import { Alert, Box, Button, Paper, TextField, Typography } from '@mui/material'
 import { FC, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { useWordsStore } from '../../stores/useWordsStore';
 
 interface WordPairInput {
-  id: number;
+  id: string;
   sourceWord: string;
   targetWord: string;
 }
@@ -23,7 +24,7 @@ const validationSchema = Yup.object({
     })
     .test(
       'valid-structure',
-      'JSON must be an array of objects with id (number), sourceWord (string), and targetWord (string)',
+      'JSON must be an array of objects with id (string), sourceWord (string), and targetWord (string)',
       function (value) {
         if (!value) return false;
         try {
@@ -34,7 +35,7 @@ const validationSchema = Yup.object({
             (item: unknown) =>
               typeof item === 'object' &&
               item !== null &&
-              typeof (item as WordPairInput).id === 'number' &&
+              typeof (item as WordPairInput).id === 'string' &&
               typeof (item as WordPairInput).sourceWord === 'string' &&
               typeof (item as WordPairInput).targetWord === 'string'
           );
@@ -48,6 +49,7 @@ const validationSchema = Yup.object({
 const UploadForm: FC = () => {
   const [isValidated, setIsValidated] = useState(false);
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
+  const { saveWords } = useWordsStore();
 
   const handleValidate = async (values: { jsonInput: string }) => {
     try {
@@ -63,9 +65,12 @@ const UploadForm: FC = () => {
   const handleSave = (values: { jsonInput: string }) => {
     try {
       const parsed: WordPairInput[] = JSON.parse(values.jsonInput);
-      console.log('Saving word pairs:', parsed);
-      // TODO: Integrate with Zustand store to save the words
-      setValidationMessage(`Successfully saved ${parsed.length} word pairs!`);
+
+      // Save to Zustand store
+      saveWords(parsed);
+
+      setValidationMessage(`Successfully saved ${parsed.length} word pairs to the store!`);
+      setIsValidated(false); // Reset validation state after save
     } catch {
       setValidationMessage('Error saving data');
     }
@@ -82,7 +87,7 @@ const UploadForm: FC = () => {
       }}
     >
       <Typography variant="h5" component="h2" gutterBottom color="primary">
-        Upload Word Pairs
+        Upload Word Pairs in JSON
       </Typography>
 
       <Formik
