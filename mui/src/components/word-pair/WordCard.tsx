@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Card, CardContent, Typography, Box, styled } from '@mui/material';
+import { Box, Card, CardContent, styled, Typography } from '@mui/material';
 import { WordPair } from '../types/word.types';
 
 type WordCardProps = Pick<WordPair, 'sourceWord' | 'targetWord'>;
@@ -50,7 +50,14 @@ const WordTypography = styled(Typography)(({ theme }) => ({
 export const WordCard: FC<WordCardProps> = ({ sourceWord, targetWord }) => {
   return (
     <StyledCard>
-      <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <CardContent
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
         <UpperSection>
           <WordTypography variant="h1" color="text.primary">
             {sourceWord}
@@ -66,4 +73,4 @@ export const WordCard: FC<WordCardProps> = ({ sourceWord, targetWord }) => {
   );
 };
 
-export default WordCard; 
+export default WordCard;

@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { Alert, Box, CircularProgress, Container } from '@mui/material';
-import WordSlider from '../components/WordSlider';
+import WordSlider from '../components/word-pair/WordSlider';
 import { useWordsStore } from '../stores/useWordsStore';
 
 export const WordLearningPage: FC = () => {
